@@ -1,0 +1,28 @@
+ribbon:
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+  routes:
+    uaa:
+      path: /uaa/**
+      serviceId: auth-center
+      sensitiveHeaders:
+    account:
+      path: /account/**
+      serviceId: account-service
+      sensitiveHeaders:
+    order:
+      path: /order/**
+      serviceId: order-service
+      sensitiveHeaders:
+  add-proxy-headers: true
+
+security:
+  oauth2:
+    client:
+      client-id: webapp

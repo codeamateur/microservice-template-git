@@ -1,0 +1,24 @@
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+security:
+  oauth2:
+    client:
+      clientId: auth-center
+      clientSecret: test
+      grant-type: client_credentials
+      scope: server
+    resource:
+      filter-order: 3
+
+feign:
+  hystrix:
+    enabled:  true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream,info,health
